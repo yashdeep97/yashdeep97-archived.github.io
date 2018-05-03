@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://yashdeep97.github.io/2015/05/cover-image-showcase/</loc>
+    <loc>https://yashdeep97.github.io/2015/05/the-journey-leading-to-gsoc-2018-with-wikimedia-foundation/</loc>
     <lastmod>2015-05-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -18,13 +18,25 @@
   </url>
   
   <url>
-    <loc>https://yashdeep97.github.io/tags/cover-image/</loc>
+    <loc>https://yashdeep97.github.io/tags/gsoc/</loc>
     <lastmod>2015-05-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://yashdeep97.github.io/categories/features/</loc>
+    <loc>https://yashdeep97.github.io/categories/gsoc/</loc>
+    <lastmod>2015-05-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yashdeep97.github.io/tags/mediawiki/</loc>
+    <lastmod>2015-05-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://yashdeep97.github.io/tags/page-forms/</loc>
     <lastmod>2015-05-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -36,13 +48,19 @@
   </url>
   
   <url>
+    <loc>https://yashdeep97.github.io/tags/spreadsheet-interface/</loc>
+    <lastmod>2015-05-13T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://yashdeep97.github.io/tags/</loc>
     <lastmod>2015-05-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://yashdeep97.github.io/categories/tranquilpeak/</loc>
+    <loc>https://yashdeep97.github.io/tags/wikimedia/</loc>
     <lastmod>2015-05-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
