@@ -6,10 +6,21 @@
     <description>Recent content in Gsoc on Yashdeep&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 21 May 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 Jun 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://yashdeep97.github.io/categories/gsoc/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Displaying the template calls in a Spreadsheet Interface</title>
+      <link>https://yashdeep97.github.io/2018/06/displaying-the-template-calls-in-a-spreadsheet-interface/</link>
+      <pubDate>Mon, 11 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://yashdeep97.github.io/2018/06/displaying-the-template-calls-in-a-spreadsheet-interface/</guid>
+      <description>&lt;p&gt;In the second week of the coding period I moved on to the central task of my project
+ie. displaying the spreadsheet in the special page previously created.
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Community Bonding and the start of the Coding Period</title>
