@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.42.2 with theme Tranquilpeak 0.4.3-BETA">
-    <title>Community Bonding and the start of the Coding Period</title>
+    <title>Pagination for the spreadsheet interface using Ajax</title>
     <meta name="author" content="Yashdeep Thorat">
     <meta name="keywords" content="">
 
@@ -28,15 +28,21 @@
     
 
     
-    <meta name="description" content="">
-    <meta property="og:description" content="">
+    <meta name="description" content="I spent my third week of coding implementing pagination for the spreadsheet interface.
+ This was a crucial task which helped in reducing the time taken to load the data.
+">
+    <meta property="og:description" content="I spent my third week of coding implementing pagination for the spreadsheet interface.
+ This was a crucial task which helped in reducing the time taken to load the data.
+">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Community Bonding and the start of the Coding Period">
-    <meta property="og:url" content="/2018/05/community-bonding-and-the-start-of-the-coding-period/">
+    <meta property="og:title" content="Pagination for the spreadsheet interface using Ajax">
+    <meta property="og:url" content="/2018/06/pagination-for-the-spreadsheet-interface-using-ajax/">
     <meta property="og:site_name" content="Yashdeep&#39;s Blog">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Yashdeep&#39;s Blog">
-    <meta name="twitter:description" content="">
+    <meta name="twitter:description" content="I spent my third week of coding implementing pagination for the spreadsheet interface.
+ This was a crucial task which helped in reducing the time taken to load the data.
+">
     
     
 
@@ -213,15 +219,15 @@
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      Community Bonding and the start of the Coding Period
+      Pagination for the spreadsheet interface using Ajax
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-05-21T00:00:00Z">
+      <time itemprop="datePublished" datetime="2018-06-30T00:00:00Z">
         
-  May 21, 2018
+  June 30, 2018
 
       </time>
     
@@ -240,23 +246,159 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p></p>
+              <p>I spent my third week of coding implementing pagination for the spreadsheet interface.
+ This was a crucial task which helped in reducing the time taken to load the data.
+</p>
 
-<h3 id="the-community-bonding-period">The Community Bonding Period</h3>
+<h3 id="fetching-data-using-ajax">Fetching data using Ajax</h3>
 
-<p>My end semester exams took up most of my time during the community bonding period.
-However, I managed to take out time to set up my own blog. Setting up the blog using
-Hugo was fun and convenient. Also, I was lucky to find a great theme - tranquilpeak
-which has lots of features and integrated services like disqus. Once I was satisfied
-and had finished customizing the blog, I wrote my first blog post. Apart from this,
-I interacted with my mentors, discussed a bit about the project and created a MediaWiki
-user page for myself and updated my profile.</p>
+<p>Pagination required the dynamic loading of data. Thus, the previously used method
+of using the database slave to retrieve data would not work. This is where the
+Mediawiki API comes into picture. The API provides a query action that enables
+the retrieval of data dynamically using Ajax.
+The first query is used to retieve the names of all the pages in which the template is embedded:
 
-<h3 id="coding-period-added-a-special-page">Coding Period: Added a Special page</h3>
 
-<p>I made an initial commit to add an extra special page to the Page Forms Extension.
-The special page tentatively named Edit using spreadsheet appears in the list of special
-pages on Special:SpecialPages as follows:</p>
+  
+  
+  
+  
+  
+
+
+  
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+    <ul class="tabs">
+      
+        <li class="tab active"></li>
+      
+    </ul>
+  </figcaption> 
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-" style="display: block;">   
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-"><code class="">baseUrl &#43; &#39;/api.php?action=query&amp;format=json&amp;list=embeddedin&amp;eilimit=500&amp;eititle=Template:&#39; &#43; templateName</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure></p>
+
+<p>Now using another query, the page contents are retreived for each page:
+
+
+  
+  
+  
+  
+  
+
+
+  
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+    <ul class="tabs">
+      
+        <li class="tab active"></li>
+      
+    </ul>
+  </figcaption> 
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-" style="display: block;">   
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-"><code class="">baseUrl &#43; &#39;/api.php?action=query&amp;format=json&amp;prop=revisions&amp;rvprop=content&amp;formatversion=2&amp;titles=&#39; &#43; pageName</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure>
+After the page contents are fetched, all the template calls are seperated and the
+values are extracted to be stored in an array of objects using javascript functions.</p>
+
+<h3 id="pagination-using-jsgrid-methods">Pagination using jsGrid methods</h3>
+
+<p>The jsGrid library provides inbuilt methods to support pagination. The configuration
+required to enable pagination is as follows:
+
+
+  
+  
+  
+  
+  
+
+
+  
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+    <ul class="tabs">
+      
+        <li class="tab active">js</li>
+      
+    </ul>
+  </figcaption> 
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-js" style="display: block;">   
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-js"><code class="js">    autoload: true,
+    paging: true,
+    pageLoading: true,
+    pageSize: 25,
+    pageIndex: 1,</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure></p>
+
+<p>The jsGrid library also provides the <strong>loadData(filter)</strong> method which is called when data loading for each
+page. I overrided this method to get the page contents using Ajax and convert the results
+into required format to display them in the spreadsheet.
+An inbuilt pager is provided by the jsGrid library that is automatically rendered
+below the grid.</p>
 
 
  
@@ -287,25 +429,74 @@ pages on Special:SpecialPages as follows:</p>
     
   
 
-<div class="figure right" >
+<div class="figure center" >
   
-    <a class="fancybox" href="https://res.cloudinary.com/dmytyofam/image/upload/v1526908324/blog-images/week2/pic2.png" title="Special:SpecialPAges" data-fancybox-group="">
+    <a class="fancybox" href="https://res.cloudinary.com/dmytyofam/image/upload/v1530374724/pager.png" title="Pager provided by jsGrid" data-fancybox-group="">
   
-    <img class="fig-img" src="https://res.cloudinary.com/dmytyofam/image/upload/v1526908324/blog-images/week2/pic2.png"  alt="Special:SpecialPAges">
+    <img class="fig-img" src="https://res.cloudinary.com/dmytyofam/image/upload/v1530374724/pager.png"  alt="Pager provided by jsGrid">
   
     </a>
   
    
-    <span class="caption">Special:SpecialPAges</span>
+    <span class="caption">Pager provided by jsGrid</span>
   
 </div>
 
   <div style="clear:both;"></div>
 
 
-<p>A template must be passed as a GET variable when redirecting to Special:EditUsingSpreadsheet.
-If no template is specified, the page displays a list of all the available templates in
-the wiki similar to Special:Templates as shown below:</p>
+<p>The number of pages are calculated using the <strong>_pagesCount()</strong>. I overrided the
+function as follows:
+
+
+  
+  
+  
+  
+  
+
+
+  
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+    <ul class="tabs">
+      
+        <li class="tab active">js</li>
+      
+    </ul>
+  </figcaption> 
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-js" style="display: block;">   
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-js"><code class="js">    pagesCount: function() {
+	  pageSize = this.pageSize;
+	  return Math.ceil( pages.length / pageSize );
+    }
+    </code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure></p>
+
+<h3 id="selector-for-number-of-results-to-show">Selector for Number of results to show</h3>
+
+<p>To create the the selector, I used the widgets from the Object Oriented User Interface
+(OOUI) library, namely PopupButtonWidget, ButtonSelectWidget and the ButtonOptionWidget.</p>
 
 
  
@@ -336,82 +527,32 @@ the wiki similar to Special:Templates as shown below:</p>
     
   
 
-<div class="figure right" >
+<div class="figure center" >
   
-    <a class="fancybox" href="https://res.cloudinary.com/dmytyofam/image/upload/v1526908324/blog-images/week2/pic1.png" title="Special:EditUsingSpreadsheet without a template(default)" data-fancybox-group="">
+    <a class="fancybox" href="https://res.cloudinary.com/dmytyofam/image/upload/v1530376000/pageSizeSelector.png" title="Selector for Number of results to show using OOUI" data-fancybox-group="">
   
-    <img class="fig-img" src="https://res.cloudinary.com/dmytyofam/image/upload/v1526908324/blog-images/week2/pic1.png"  alt="Special:EditUsingSpreadsheet without a template(default)">
+    <img class="fig-img" src="https://res.cloudinary.com/dmytyofam/image/upload/v1530376000/pageSizeSelector.png"  alt="Selector for Number of results to show using OOUI">
   
     </a>
   
    
-    <span class="caption">Special:EditUsingSpreadsheet without a template(default)</span>
+    <span class="caption">Selector for Number of results to show using OOUI</span>
   
 </div>
 
   <div style="clear:both;"></div>
 
 
-<p>If a template is specified, then the page currently displays a blank. I am currently working
-on adding a spreadsheet interface using jsGrid to the page, which will have all the
-template call to that template.
+<p>When a different <strong>pageSize</strong> is selected the loadData() function is called again
+and the grid is refreshed according to the new pageSize.</p>
 
- 
-  
-  
-  
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-  
+<p>My next task will be to enable adding of new pages using the interface and to improve
+the autoedit API for saving pages. Stay tuned for updates!</p>
 
- 
-  
-  
-  
-  
-    
-  
-    
-      
-    
-  
-
-<div class="figure right" >
-  
-    <a class="fancybox" href="https://res.cloudinary.com/dmytyofam/image/upload/v1526908324/blog-images/week2/pic3.png" title="Special:EditUsingSpreadsheet for template: Jsgrid-test" data-fancybox-group="">
-  
-    <img class="fig-img" src="https://res.cloudinary.com/dmytyofam/image/upload/v1526908324/blog-images/week2/pic3.png"  alt="Special:EditUsingSpreadsheet for template: Jsgrid-test">
-  
-    </a>
-  
-   
-    <span class="caption">Special:EditUsingSpreadsheet for template: Jsgrid-test</span>
-  
-</div>
-
-  <div style="clear:both;"></div>
-
-I am currently figuring out the best approach to make the spreadsheet and trying
-to understand the functions and classes used to query and display data.</p>
-
-<p>The above-mentioned updates can be viewed in the following commit: <strong><a href="https://gerrit.wikimedia.org/r/#/c/433565/">https://gerrit.wikimedia.org/r/#/c/433565/</a></strong></p>
-
-<p>Stay tuned for updates!</p>
-
-<h3 id="related-links">Related Links</h3>
+<h3 id="patches-on-gerrit">Patches on Gerrit:</h3>
 
 <ul>
-<li><a href="https://gohugo.io/">https://gohugo.io/</a></li>
-<li><a href="https://themes.gohugo.io/hugo-tranquilpeak-theme/">https://themes.gohugo.io/hugo-tranquilpeak-theme/</a></li>
-<li><a href="https://www.mediawiki.org/wiki/User:Yashdeep97">https://www.mediawiki.org/wiki/User:Yashdeep97</a></li>
+<li><a href="https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/PageForms/+/441261/">Add pagination feature to EditUSingSpreadsheet special page</a></li>
 </ul>
               
             </div>
@@ -443,7 +584,7 @@ to understand the functions and classes used to query and display data.</p>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/06/displaying-the-template-calls-in-a-spreadsheet-interface/" data-tooltip="Displaying the template calls in a Spreadsheet Interface">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -451,7 +592,7 @@ to understand the functions and classes used to query and display data.</p>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/05/the-journey-leading-to-gsoc-2018-with-wikimedia-foundation/" data-tooltip="The Journey leading to GSoC 2018 with Wikimedia Foundation">
+                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/06/displaying-the-template-calls-in-a-spreadsheet-interface/" data-tooltip="Displaying the template calls in a Spreadsheet Interface">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -469,13 +610,13 @@ to understand the functions and classes used to query and display data.</p>
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yashdeep97.github.io/2018/05/community-bonding-and-the-start-of-the-coding-period/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yashdeep97.github.io/2018/06/pagination-for-the-spreadsheet-interface-using-ajax/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://yashdeep97.github.io/2018/05/community-bonding-and-the-start-of-the-coding-period/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://yashdeep97.github.io/2018/06/pagination-for-the-spreadsheet-interface-using-ajax/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -523,7 +664,7 @@ to understand the functions and classes used to query and display data.</p>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/06/displaying-the-template-calls-in-a-spreadsheet-interface/" data-tooltip="Displaying the template calls in a Spreadsheet Interface">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -531,7 +672,7 @@ to understand the functions and classes used to query and display data.</p>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/05/the-journey-leading-to-gsoc-2018-with-wikimedia-foundation/" data-tooltip="The Journey leading to GSoC 2018 with Wikimedia Foundation">
+                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/06/displaying-the-template-calls-in-a-spreadsheet-interface/" data-tooltip="Displaying the template calls in a Spreadsheet Interface">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -549,13 +690,13 @@ to understand the functions and classes used to query and display data.</p>
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yashdeep97.github.io/2018/05/community-bonding-and-the-start-of-the-coding-period/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yashdeep97.github.io/2018/06/pagination-for-the-spreadsheet-interface-using-ajax/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://yashdeep97.github.io/2018/05/community-bonding-and-the-start-of-the-coding-period/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://yashdeep97.github.io/2018/06/pagination-for-the-spreadsheet-interface-using-ajax/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -585,13 +726,13 @@ to understand the functions and classes used to query and display data.</p>
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyashdeep97.github.io%2F2018%2F05%2Fcommunity-bonding-and-the-start-of-the-coding-period%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyashdeep97.github.io%2F2018%2F06%2Fpagination-for-the-spreadsheet-interface-using-ajax%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fyashdeep97.github.io%2F2018%2F05%2Fcommunity-bonding-and-the-start-of-the-coding-period%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fyashdeep97.github.io%2F2018%2F06%2Fpagination-for-the-spreadsheet-interface-using-ajax%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
@@ -771,9 +912,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/yashdeep97.github.io\/2018\/05\/community-bonding-and-the-start-of-the-coding-period\/';
+          this.page.url = 'https:\/\/yashdeep97.github.io\/2018\/06\/pagination-for-the-spreadsheet-interface-using-ajax\/';
           
-            this.page.identifier = 'gsoc2';
+            this.page.identifier = 'gsoc4';
           
         };
         (function() {
