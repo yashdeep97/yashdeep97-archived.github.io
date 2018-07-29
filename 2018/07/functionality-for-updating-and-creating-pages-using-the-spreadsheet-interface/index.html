@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.45.1 with theme Tranquilpeak 0.4.3-BETA">
-    <title>The Journey leading to GSoC 2018 with Wikimedia Foundation</title>
+    <title>Functionality for updating and creating pages using the Spreadsheet interface</title>
     <meta name="author" content="Yashdeep Thorat">
     <meta name="keywords" content="">
 
@@ -28,21 +28,15 @@
     
 
     
-    <meta name="description" content="The results are out and I have been selected for GSoC 2018!
-I couldn&rsquo;t be more thrilled as I take my first step into the Open Source World.
-">
-    <meta property="og:description" content="The results are out and I have been selected for GSoC 2018!
-I couldn&rsquo;t be more thrilled as I take my first step into the Open Source World.
-">
+    <meta name="description" content="">
+    <meta property="og:description" content="">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="The Journey leading to GSoC 2018 with Wikimedia Foundation">
-    <meta property="og:url" content="/2018/05/the-journey-leading-to-gsoc-2018-with-wikimedia-foundation/">
+    <meta property="og:title" content="Functionality for updating and creating pages using the Spreadsheet interface">
+    <meta property="og:url" content="/2018/07/functionality-for-updating-and-creating-pages-using-the-spreadsheet-interface/">
     <meta property="og:site_name" content="Yashdeep&#39;s Blog">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Yashdeep&#39;s Blog">
-    <meta name="twitter:description" content="The results are out and I have been selected for GSoC 2018!
-I couldn&rsquo;t be more thrilled as I take my first step into the Open Source World.
-">
+    <meta name="twitter:description" content="">
     
     
 
@@ -54,7 +48,7 @@ I couldn&rsquo;t be more thrilled as I take my first step into the Open Source W
     
 
     
-      <meta property="og:image" content="//res.cloudinary.com/dmytyofam/image/upload/v1525352005/220px-GSoC.png">
+      <meta property="og:image" content="//res.cloudinary.com/dmytyofam/image/upload/v1526577476/Wikimedia_Foundation_Logo.png">
     
     
     
@@ -219,15 +213,15 @@ I couldn&rsquo;t be more thrilled as I take my first step into the Open Source W
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      The Journey leading to GSoC 2018 with Wikimedia Foundation
+      Functionality for updating and creating pages using the Spreadsheet interface
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-05-03T00:00:00Z">
+      <time itemprop="datePublished" datetime="2018-07-29T00:00:00Z">
         
-  May 3, 2018
+  July 29, 2018
 
       </time>
     
@@ -246,46 +240,129 @@ I couldn&rsquo;t be more thrilled as I take my first step into the Open Source W
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>The results are out and I have been selected for GSoC 2018!
-I couldn&rsquo;t be more thrilled as I take my first step into the Open Source World.
-</p>
+              <p></p>
 
-<h3 id="the-journey-so-far">The Journey so far&hellip;</h3>
+<h3 id="why-use-mediawiki-api-to-update-page-contents">Why use MediaWiki API to update page contents?</h3>
 
-<p>I have been able to learn a lot of new things during the GSoC application period, from the initial confusion of choosing the right project and organisation to submitting a proposal.
-After going through a lot of different projects of various organisations, I decided that the Page Forms project by Wikimedia Foundation was the right project for me. Then, I started contributing to it and understanding the various features to be implemented as part of the project.</p>
+<p>The MediaWiki API is an extremely useful tool for developers. I was suggested to
+use the pfautoeditAPI to update the page contents by Yaron. This turned out be
+quite simple compared to the previous method of forom submission that I was using.
+It also saved a lot time because now, only those rows which were edited, were updated
+instead of processing all the rows. I feel, it also made the user interface simpler
+and more intuitive. Furthermore, it made the interface dynamic as the updates would
+get saved right away and any errors would also be displayed immediately.</p>
 
-<p>Although the journey was a bit overwhelming and difficult at first, I received a lot of guidance from <a href="https://www.mediawiki.org/wiki/User:Yaron_Koren">Yaron</a> along the way as I tried my hand at couple of microtasks and fixing a few bugs.
-<a href="https://github.com/balabky9">Bala</a> and <a href="https://github.com/nischayn22">Nischay</a> encouraged me and helped me refine my proposal and bring it to completion.
-The couple of weeks before the application deadline were a bit stressful with the pressure to write a good proposal and make more contributions, along with balancing my academic requirements. I also received help from my batchmates (particularly, <a href="https://github.com/aero31aero">Rohitt</a> and <a href="https://github.com/shortstheory">Arnav</a>), who encouraged me throughout the process.
-Finally, I submitted my proposal and the wait for the results began. I was anxious about the results, but when they came out, I was feeling on top of the world!</p>
+<h3 id="using-the-pfautoeditapi">Using the pfautoeditAPI</h3>
 
-<p>The entire journey has instilled a lot of confidence in me and has given me a sense of achievement. :)</p>
+<p>The pfautoeditAPI makes use of forms to edit the contents of a template call in
+a page. The form being used must contain the template.
+The query used is:
 
-<h3 id="my-project-add-a-spreadsheet-interface-to-the-page-forms-extension">My project: Add a Spreadsheet Interface to the Page Forms Extension</h3>
 
-<p>The different tools used to edit and create new pages with MediaWiki fascinated me and the Page Forms extension provides a novel method to do the same. Using the Page Forms extension, one can create forms made up of multiple templates. These forms can then be filled to create pages. The pages can also be edited using the same forms.</p>
+  
+  
+  
+  
+  
 
-<p>My project over this summer will aim to add a spreadsheet like interface to edit multiple pages at once. Similar to the forms, the spreadsheet will contain calls from various pages to the same template which the administrator can edit. New pages with the same template can also be added using the same interface.</p>
 
-<p>Other features planned are: renaming pages, support for combo-box and token fields with autocompletion.</p>
+  
+  
 
-<p>I made some <strong>mockups</strong> for the same:</p>
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+    <ul class="tabs">
+      
+        <li class="tab active"></li>
+      
+    </ul>
+  </figcaption> 
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-" style="display: block;">   
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-"><code class="">baseUrl &#43; &#39;/api.php?action=pfautoedit&amp;format=json&amp;form=&#39; &#43; formName &#43; &#39;&amp;target=&#39; &#43; pageName &#43; updateString</code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure></p>
 
-<p><img src="https://res.cloudinary.com/dmytyofam/image/upload/v1525352161/blog-images/ProposalWireframe_1.png" alt="wireframe1" /></p>
+<p>Here, updateString consists all the edits made to the template call, where <em>key</em> is
+the template parameter and <em>value</em> is the updated contents of that parameter.
 
-<p><img src="https://res.cloudinary.com/dmytyofam/image/upload/v1525352168/blog-images/ProposalWireframe_2.png" alt="wireframe2" /></p>
 
-<p>I believe contributing to this project would be a great opportunity for me to be a part of this amazing community and write code that will possibly be used by millions of people.</p>
+  
+  
+  
+  
+  
 
-<p>Stay tuned for updates on my project!</p>
 
-<p><strong>Related links:</strong></p>
+  
+  
+
+<figure class="codeblock codeblock--tabbed">
+  <figcaption>
+    
+    <ul class="tabs">
+      
+        <li class="tab active">js</li>
+      
+    </ul>
+  </figcaption> 
+  <div class="tabs-content">
+    
+      
+      <figure class="highlight language-js" style="display: block;">   
+        <table>
+          <tbody>
+            <tr>
+              <td class="gutter">
+                <pre><span>1</span><br></pre>
+              </td>
+              <td class="code">
+                <pre class="code-highlight language-js"><code class="js">updateString &#43;= &#39;&amp;&#39; &#43; templateName &#43; &#39;[&#39; &#43; key &#43; &#39;]&#39; &#43; &#39;=&#39; &#43; value; </code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    
+  </div>
+</figure></p>
+
+<h3 id="creating-pages-using-pfautoeditapi">Creating pages using pfautoeditAPI</h3>
+
+<p>The pfautoeditAPI can not only edit pages, but can also create them if the pages
+do not exist. The pages created, contain only the template which is being used
+for the spreadsheet.
+The same query which was used for updating is also used for creating a page. However,
+this causes a problem because if a user tries to create a page which already exists,
+the page might get updated. Thus, there is a check to find out if the the page already
+exists, upon which an error is displyed.</p>
+
+<h3 id="the-biggest-hurdles-i-faced">The biggest hurdles I faced:</h3>
+
+<p>I ran into lot of problems due to the asynchronous nature of javascript.( I removed
+&ldquo;async: false&rdquo; because it was causing the page to freeze ). Nischay helped me resolve
+this issue by using callbacks.</p>
+
+<h3 id="patch-es-on-gerrit">Patch(es) on Gerrit:</h3>
 
 <ul>
-<li><a href="https://phabricator.wikimedia.org/T189743">https://phabricator.wikimedia.org/T189743</a></li>
-<li><a href="https://summerofcode.withgoogle.com">https://summerofcode.withgoogle.com</a></li>
-<li><a href="https://www.mediawiki.org/wiki/Google_Summer_of_Code/2018">https://www.mediawiki.org/wiki/Google_Summer_of_Code/2018</a></li>
+<li><a href="https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/PageForms/+/441261/">Add support for updating and creating pages using the EditUsingSpreadsheet special page</a></li>
 </ul>
               
             </div>
@@ -317,7 +394,7 @@ Finally, I submitted my proposal and the wait for the results began. I was anxio
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/05/community-bonding-and-the-start-of-the-coding-period/" data-tooltip="Community Bonding and the start of the Coding Period">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -325,7 +402,7 @@ Finally, I submitted my proposal and the wait for the results began. I was anxio
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/06/pagination-for-the-spreadsheet-interface-using-ajax/" data-tooltip="Pagination for the spreadsheet interface using Ajax">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -343,13 +420,13 @@ Finally, I submitted my proposal and the wait for the results began. I was anxio
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yashdeep97.github.io/2018/05/the-journey-leading-to-gsoc-2018-with-wikimedia-foundation/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yashdeep97.github.io/2018/07/functionality-for-updating-and-creating-pages-using-the-spreadsheet-interface/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://yashdeep97.github.io/2018/05/the-journey-leading-to-gsoc-2018-with-wikimedia-foundation/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://yashdeep97.github.io/2018/07/functionality-for-updating-and-creating-pages-using-the-spreadsheet-interface/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -397,7 +474,7 @@ Finally, I submitted my proposal and the wait for the results began. I was anxio
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/05/community-bonding-and-the-start-of-the-coding-period/" data-tooltip="Community Bonding and the start of the Coding Period">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -405,7 +482,7 @@ Finally, I submitted my proposal and the wait for the results began. I was anxio
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--disabled">
+                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/06/pagination-for-the-spreadsheet-interface-using-ajax/" data-tooltip="Pagination for the spreadsheet interface using Ajax">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -423,13 +500,13 @@ Finally, I submitted my proposal and the wait for the results began. I was anxio
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yashdeep97.github.io/2018/05/the-journey-leading-to-gsoc-2018-with-wikimedia-foundation/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yashdeep97.github.io/2018/07/functionality-for-updating-and-creating-pages-using-the-spreadsheet-interface/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://yashdeep97.github.io/2018/05/the-journey-leading-to-gsoc-2018-with-wikimedia-foundation/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://yashdeep97.github.io/2018/07/functionality-for-updating-and-creating-pages-using-the-spreadsheet-interface/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -459,13 +536,13 @@ Finally, I submitted my proposal and the wait for the results began. I was anxio
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyashdeep97.github.io%2F2018%2F05%2Fthe-journey-leading-to-gsoc-2018-with-wikimedia-foundation%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyashdeep97.github.io%2F2018%2F07%2Ffunctionality-for-updating-and-creating-pages-using-the-spreadsheet-interface%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fyashdeep97.github.io%2F2018%2F05%2Fthe-journey-leading-to-gsoc-2018-with-wikimedia-foundation%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fyashdeep97.github.io%2F2018%2F07%2Ffunctionality-for-updating-and-creating-pages-using-the-spreadsheet-interface%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
@@ -662,9 +739,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/yashdeep97.github.io\/2018\/05\/the-journey-leading-to-gsoc-2018-with-wikimedia-foundation\/';
+          this.page.url = 'https:\/\/yashdeep97.github.io\/2018\/07\/functionality-for-updating-and-creating-pages-using-the-spreadsheet-interface\/';
           
-            this.page.identifier = 'gsoc1';
+            this.page.identifier = 'gsoc5';
           
         };
         (function() {
