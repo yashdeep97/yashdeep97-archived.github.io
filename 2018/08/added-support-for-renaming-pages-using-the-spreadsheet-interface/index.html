@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.46 with theme Tranquilpeak 0.4.3-BETA">
-    <title>Pagination for the spreadsheet interface using Ajax</title>
+    <title>Added support for renaming pages using the Spreadsheet Interface</title>
     <meta name="author" content="Yashdeep Thorat">
     <meta name="keywords" content="">
 
@@ -28,20 +28,23 @@
     
 
     
-    <meta name="description" content="I spent my third week of coding implementing pagination for the spreadsheet interface.
- This was a crucial task which helped in reducing the time taken to load the data.
+    <meta name="description" content="After finishing with the implementation of update and insert, I decided to work on
+implementing the renaming pages functionality. I also tried quite a few MediaWiki
+modules to display the success and error messages for the spreadsheet.
 ">
-    <meta property="og:description" content="I spent my third week of coding implementing pagination for the spreadsheet interface.
- This was a crucial task which helped in reducing the time taken to load the data.
+    <meta property="og:description" content="After finishing with the implementation of update and insert, I decided to work on
+implementing the renaming pages functionality. I also tried quite a few MediaWiki
+modules to display the success and error messages for the spreadsheet.
 ">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Pagination for the spreadsheet interface using Ajax">
-    <meta property="og:url" content="/2018/06/pagination-for-the-spreadsheet-interface-using-ajax/">
+    <meta property="og:title" content="Added support for renaming pages using the Spreadsheet Interface">
+    <meta property="og:url" content="/2018/08/added-support-for-renaming-pages-using-the-spreadsheet-interface/">
     <meta property="og:site_name" content="Yashdeep&#39;s Blog">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Yashdeep&#39;s Blog">
-    <meta name="twitter:description" content="I spent my third week of coding implementing pagination for the spreadsheet interface.
- This was a crucial task which helped in reducing the time taken to load the data.
+    <meta name="twitter:description" content="After finishing with the implementation of update and insert, I decided to work on
+implementing the renaming pages functionality. I also tried quite a few MediaWiki
+modules to display the success and error messages for the spreadsheet.
 ">
     
     
@@ -219,15 +222,15 @@
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      Pagination for the spreadsheet interface using Ajax
+      Added support for renaming pages using the Spreadsheet Interface
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-06-30T00:00:00Z">
+      <time itemprop="datePublished" datetime="2018-08-03T00:00:00Z">
         
-  June 30, 2018
+  August 3, 2018
 
       </time>
     
@@ -246,17 +249,15 @@
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>I spent my third week of coding implementing pagination for the spreadsheet interface.
- This was a crucial task which helped in reducing the time taken to load the data.
+              <p>After finishing with the implementation of update and insert, I decided to work on
+implementing the renaming pages functionality. I also tried quite a few MediaWiki
+modules to display the success and error messages for the spreadsheet.
 </p>
 
-<h3 id="fetching-data-using-ajax">Fetching data using Ajax</h3>
+<h3 id="renaming-pages-using-mediawiki-move-api">Renaming pages using MediaWiki Move API</h3>
 
-<p>Pagination required the dynamic loading of data. Thus, the previously used method
-of using the database slave to retrieve data would not work. This is where the
-Mediawiki API comes into picture. The API provides a query action that enables
-the retrieval of data dynamically using Ajax.
-The first query is used to retieve the names of all the pages in which the template is embedded:
+<p>The Move API can be used to rename a page with the help of a csrf token.
+The token can be obtained using the Query API:
 
 
   
@@ -274,65 +275,25 @@ The first query is used to retieve the names of all the pages in which the templ
     
     <ul class="tabs">
       
-        <li class="tab active"></li>
+        <li class="tab active">js</li>
       
     </ul>
   </figcaption> 
   <div class="tabs-content">
     
       
-      <figure class="highlight language-" style="display: block;">   
+      <figure class="highlight language-js" style="display: block;">   
         <table>
           <tbody>
             <tr>
               <td class="gutter">
-                <pre><span>1</span><br></pre>
+                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br></pre>
               </td>
               <td class="code">
-                <pre class="code-highlight language-"><code class="">baseUrl &#43; &#39;/api.php?action=query&amp;format=json&amp;list=embeddedin&amp;eilimit=500&amp;eititle=Template:&#39; &#43; templateName</code></pre>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </figure>
-    
-  </div>
-</figure></p>
-
-<p>Now using another query, the page contents are retreived for each page:
-
-
-  
-  
-  
-  
-  
-
-
-  
-  
-
-<figure class="codeblock codeblock--tabbed">
-  <figcaption>
-    
-    <ul class="tabs">
-      
-        <li class="tab active"></li>
-      
-    </ul>
-  </figcaption> 
-  <div class="tabs-content">
-    
-      
-      <figure class="highlight language-" style="display: block;">   
-        <table>
-          <tbody>
-            <tr>
-              <td class="gutter">
-                <pre><span>1</span><br></pre>
-              </td>
-              <td class="code">
-                <pre class="code-highlight language-"><code class="">baseUrl &#43; &#39;/api.php?action=query&amp;format=json&amp;prop=revisions&amp;rvprop=content&amp;formatversion=2&amp;titles=&#39; &#43; pageName</code></pre>
+                <pre class="code-highlight language-js"><code class="js">    function getToken() {
+    	var url = baseUrl &#43; &#39;/api.php?action=query&amp;format=json&amp;meta=tokens&amp;type=csrf&#39;;
+    	return $.post( url );
+    }</code></pre>
               </td>
             </tr>
           </tbody>
@@ -341,13 +302,8 @@ The first query is used to retieve the names of all the pages in which the templ
     
   </div>
 </figure>
-After the page contents are fetched, all the template calls are seperated and the
-values are extracted to be stored in an array of objects using javascript functions.</p>
-
-<h3 id="pagination-using-jsgrid-methods">Pagination using jsGrid methods</h3>
-
-<p>The jsGrid library provides inbuilt methods to support pagination. The configuration
-required to enable pagination is as follows:
+The token returned then can be used to rename a particular page.
+The query used is:
 
 
   
@@ -365,26 +321,22 @@ required to enable pagination is as follows:
     
     <ul class="tabs">
       
-        <li class="tab active">js</li>
+        <li class="tab active"></li>
       
     </ul>
   </figcaption> 
   <div class="tabs-content">
     
       
-      <figure class="highlight language-js" style="display: block;">   
+      <figure class="highlight language-" style="display: block;">   
         <table>
           <tbody>
             <tr>
               <td class="gutter">
-                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br></pre>
+                <pre><span>1</span><br></pre>
               </td>
               <td class="code">
-                <pre class="code-highlight language-js"><code class="js">    autoload: true,
-    paging: true,
-    pageLoading: true,
-    pageSize: 25,
-    pageIndex: 1,</code></pre>
+                <pre class="code-highlight language-"><code class="">baseUrl &#43; &#39;/api.php?action=move&amp;format=json&amp;&#39; &#43; &#39;from=&#39; &#43; encodeURIComponent( fromPage ) &#43; &#34;&amp;to=&#34; &#43; encodeURIComponent( toPage ) &#43; &#34;&amp;movetalk&amp;noredirect&#34;;</code></pre>
               </td>
             </tr>
           </tbody>
@@ -392,13 +344,16 @@ required to enable pagination is as follows:
       </figure>
     
   </div>
-</figure></p>
+</figure>
+where the page <em>fromPage</em> is renamed to <em>toPage</em> and the talk page is also moved,
+leaving no redirect.</p>
 
-<p>The jsGrid library also provides the <strong>loadData(filter)</strong> method which is called when data loading for each
-page. I overrided this method to get the page contents using Ajax and convert the results
-into required format to display them in the spreadsheet.
-An inbuilt pager is provided by the jsGrid library that is automatically rendered
-below the grid.</p>
+<h3 id="success-and-error-messages">Success and error messages</h3>
+
+<p>I have used the mw.notify() module to display success and error messages as popups on
+the screen and they hide automatically after some time. I have also added a parameter
+<em>type: &lsquo;error&rsquo;</em> to add formatting to the error messages.
+For example:</p>
 
 
  
@@ -431,128 +386,25 @@ below the grid.</p>
 
 <div class="figure center" >
   
-    <a class="fancybox" href="https://res.cloudinary.com/dmytyofam/image/upload/v1530374724/pager.png" title="Pager provided by jsGrid" data-fancybox-group="">
+    <a class="fancybox" href="https://res.cloudinary.com/dmytyofam/image/upload/v1533499072/errorNotify.png" title="Error in renaming a page" data-fancybox-group="">
   
-    <img class="fig-img" src="https://res.cloudinary.com/dmytyofam/image/upload/v1530374724/pager.png"  alt="Pager provided by jsGrid">
+    <img class="fig-img" src="https://res.cloudinary.com/dmytyofam/image/upload/v1533499072/errorNotify.png"  alt="Error in renaming a page">
   
     </a>
   
    
-    <span class="caption">Pager provided by jsGrid</span>
+    <span class="caption">Error in renaming a page</span>
   
 </div>
 
   <div style="clear:both;"></div>
 
 
-<p>The number of pages are calculated using the <strong>_pagesCount()</strong>. I overrided the
-function as follows:
-
-
-  
-  
-  
-  
-  
-
-
-  
-  
-
-<figure class="codeblock codeblock--tabbed">
-  <figcaption>
-    
-    <ul class="tabs">
-      
-        <li class="tab active">js</li>
-      
-    </ul>
-  </figcaption> 
-  <div class="tabs-content">
-    
-      
-      <figure class="highlight language-js" style="display: block;">   
-        <table>
-          <tbody>
-            <tr>
-              <td class="gutter">
-                <pre><span>1</span><br><span>2</span><br><span>3</span><br><span>4</span><br><span>5</span><br></pre>
-              </td>
-              <td class="code">
-                <pre class="code-highlight language-js"><code class="js">    pagesCount: function() {
-	  pageSize = this.pageSize;
-	  return Math.ceil( pages.length / pageSize );
-    }
-    </code></pre>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </figure>
-    
-  </div>
-</figure></p>
-
-<h3 id="selector-for-number-of-results-to-show">Selector for Number of results to show</h3>
-
-<p>To create the the selector, I used the widgets from the Object Oriented User Interface
-(OOUI) library, namely PopupButtonWidget, ButtonSelectWidget and the ButtonOptionWidget.</p>
-
-
- 
-  
-  
-  
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-  
-
- 
-  
-  
-  
-  
-    
-  
-    
-      
-    
-  
-
-<div class="figure center" >
-  
-    <a class="fancybox" href="https://res.cloudinary.com/dmytyofam/image/upload/v1530376000/pageSizeSelector.png" title="Selector for Number of results to show using OOUI" data-fancybox-group="">
-  
-    <img class="fig-img" src="https://res.cloudinary.com/dmytyofam/image/upload/v1530376000/pageSizeSelector.png"  alt="Selector for Number of results to show using OOUI">
-  
-    </a>
-  
-   
-    <span class="caption">Selector for Number of results to show using OOUI</span>
-  
-</div>
-
-  <div style="clear:both;"></div>
-
-
-<p>When a different <strong>pageSize</strong> is selected the loadData() function is called again
-and the grid is refreshed according to the new pageSize.</p>
-
-<p>My next task will be to enable adding of new pages using the interface and to improve
-the autoedit API for saving pages. Stay tuned for updates!</p>
-
-<h3 id="patches-on-gerrit">Patches on Gerrit:</h3>
+<h3 id="patch-es-on-gerrit">Patch(es) on Gerrit:</h3>
 
 <ul>
-<li><a href="https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/PageForms/+/441261/">Add pagination feature to EditUSingSpreadsheet special page</a></li>
+<li><a href="https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/PageForms/+/441261/">Add support for renaming pages using the EditUsingSpreadsheet special page</a></li>
+<li><a href="https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/PageForms/+/450480/">Display success and error messages</a></li>
 </ul>
               
             </div>
@@ -584,7 +436,7 @@ the autoedit API for saving pages. Stay tuned for updates!</p>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/07/functionality-for-updating-and-creating-pages-using-the-spreadsheet-interface/" data-tooltip="Functionality for updating and creating pages using the Spreadsheet interface">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -592,7 +444,7 @@ the autoedit API for saving pages. Stay tuned for updates!</p>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/06/displaying-the-template-calls-in-a-spreadsheet-interface/" data-tooltip="Displaying the template calls in a Spreadsheet Interface">
+                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/07/functionality-for-updating-and-creating-pages-using-the-spreadsheet-interface/" data-tooltip="Functionality for updating and creating pages using the Spreadsheet interface">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -610,13 +462,13 @@ the autoedit API for saving pages. Stay tuned for updates!</p>
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yashdeep97.github.io/2018/06/pagination-for-the-spreadsheet-interface-using-ajax/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yashdeep97.github.io/2018/08/added-support-for-renaming-pages-using-the-spreadsheet-interface/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://yashdeep97.github.io/2018/06/pagination-for-the-spreadsheet-interface-using-ajax/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://yashdeep97.github.io/2018/08/added-support-for-renaming-pages-using-the-spreadsheet-interface/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -664,7 +516,7 @@ the autoedit API for saving pages. Stay tuned for updates!</p>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/07/functionality-for-updating-and-creating-pages-using-the-spreadsheet-interface/" data-tooltip="Functionality for updating and creating pages using the Spreadsheet interface">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -672,7 +524,7 @@ the autoedit API for saving pages. Stay tuned for updates!</p>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/06/displaying-the-template-calls-in-a-spreadsheet-interface/" data-tooltip="Displaying the template calls in a Spreadsheet Interface">
+                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/07/functionality-for-updating-and-creating-pages-using-the-spreadsheet-interface/" data-tooltip="Functionality for updating and creating pages using the Spreadsheet interface">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -690,13 +542,13 @@ the autoedit API for saving pages. Stay tuned for updates!</p>
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yashdeep97.github.io/2018/06/pagination-for-the-spreadsheet-interface-using-ajax/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yashdeep97.github.io/2018/08/added-support-for-renaming-pages-using-the-spreadsheet-interface/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://yashdeep97.github.io/2018/06/pagination-for-the-spreadsheet-interface-using-ajax/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://yashdeep97.github.io/2018/08/added-support-for-renaming-pages-using-the-spreadsheet-interface/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -726,13 +578,13 @@ the autoedit API for saving pages. Stay tuned for updates!</p>
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyashdeep97.github.io%2F2018%2F06%2Fpagination-for-the-spreadsheet-interface-using-ajax%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyashdeep97.github.io%2F2018%2F08%2Fadded-support-for-renaming-pages-using-the-spreadsheet-interface%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fyashdeep97.github.io%2F2018%2F06%2Fpagination-for-the-spreadsheet-interface-using-ajax%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fyashdeep97.github.io%2F2018%2F08%2Fadded-support-for-renaming-pages-using-the-spreadsheet-interface%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
@@ -949,9 +801,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/yashdeep97.github.io\/2018\/06\/pagination-for-the-spreadsheet-interface-using-ajax\/';
+          this.page.url = 'https:\/\/yashdeep97.github.io\/2018\/08\/added-support-for-renaming-pages-using-the-spreadsheet-interface\/';
           
-            this.page.identifier = 'gsoc4';
+            this.page.identifier = 'gsoc5';
           
         };
         (function() {
