@@ -1,5 +1,9 @@
 
 
+  
+    
+  
+
 
   
 
@@ -16,25 +20,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.46 with theme Tranquilpeak 0.4.3-BETA">
-    <title>Gsoc</title>
+    <title>Added support for combobox and tokens input types in the spreadsheet display</title>
     <meta name="author" content="Yashdeep Thorat">
     <meta name="keywords" content="">
 
-    <link rel="icon" href="../../favicon.png">
-    
-      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://yashdeep97.github.io/categories/gsoc/index.xml">
+    <link rel="icon" href="../../../favicon.png">
     
 
     
-    <meta name="description" content="">
-    <meta property="og:description" content="">
+    <meta name="description" content="The GSoC coding period is almost over and my final major task is to enable the combobox
+and tokens input types in the MultiPageEdit as well as the spreadsheet display for
+FormEdit.
+">
+    <meta property="og:description" content="The GSoC coding period is almost over and my final major task is to enable the combobox
+and tokens input types in the MultiPageEdit as well as the spreadsheet display for
+FormEdit.
+">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Gsoc">
-    <meta property="og:url" content="/categories/gsoc/">
+    <meta property="og:title" content="Added support for combobox and tokens input types in the spreadsheet display">
+    <meta property="og:url" content="/2018/08/added-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display/">
     <meta property="og:site_name" content="Yashdeep&#39;s Blog">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Yashdeep&#39;s Blog">
-    <meta name="twitter:description" content="">
+    <meta name="twitter:description" content="The GSoC coding period is almost over and my final major task is to enable the combobox
+and tokens input types in the MultiPageEdit as well as the spreadsheet display for
+FormEdit.
+">
     
     
 
@@ -45,6 +56,8 @@
       <meta property="og:image" content="https://res.cloudinary.com/dmytyofam/image/upload/v1525352602/blog-images/cover.jpg">
     
 
+    
+      <meta property="og:image" content="//res.cloudinary.com/dmytyofam/image/upload/v1526577476/Wikimedia_Foundation_Logo.png">
     
     
     
@@ -57,7 +70,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
     
     
-    <link rel="stylesheet" href="../../css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    <link rel="stylesheet" href="../../../css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
     
     
 
@@ -69,15 +82,15 @@
 
   <body>
     <div id="blog">
-      <header id="header" data-behavior="1">
+      <header id="header" data-behavior="4">
   <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
   <div class="header-title">
-    <a class="header-title-link" href="../../">Yashdeep&#39;s Blog</a>
+    <a class="header-title-link" href="../../../">Yashdeep&#39;s Blog</a>
   </div>
   
     
       <a class="header-right-picture "
-         href="../../#about">
+         href="../../../#about">
     
     
     
@@ -89,11 +102,11 @@
   
 </header>
 
-      <nav id="sidebar" data-behavior="1">
+      <nav id="sidebar" data-behavior="4">
   <div class="sidebar-container">
     
       <div class="sidebar-profile">
-        <a href="../../#about">
+        <a href="../../../#about">
           <img class="sidebar-profile-picture" src="https://res.cloudinary.com/dmytyofam/image/upload/v1525352602/blog-images/cover.jpg" alt="Author&#39;s picture" />
         </a>
         <h4 class="sidebar-profile-name">Yashdeep Thorat</h4>
@@ -106,7 +119,7 @@
       
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="../../">
+      <a class="sidebar-button-link " href="../../../">
     
       <i class="sidebar-button-icon fa fa-lg fa-home"></i>
       
@@ -116,7 +129,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="../../categories">
+      <a class="sidebar-button-link " href="../../../categories">
     
       <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
       
@@ -126,7 +139,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="../../tags">
+      <a class="sidebar-button-link " href="../../../tags">
     
       <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
       
@@ -136,7 +149,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="../../archives">
+      <a class="sidebar-button-link " href="../../../archives">
     
       <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
       
@@ -146,7 +159,7 @@
 
   <li class="sidebar-button">
     
-      <a class="sidebar-button-link " href="../../#about">
+      <a class="sidebar-button-link " href="../../../#about">
     
       <i class="sidebar-button-icon fa fa-lg fa-question"></i>
       
@@ -198,35 +211,21 @@
 </nav>
 
       
-        
 
-      
-      <div id="main" data-behavior="1"
+      <div id="main" data-behavior="4"
         class="
-               hasCoverMetaIn
+               hasCoverMetaOut
                ">
-        
-          <section class="postShorten-group main-content-wrap">
-            
-            
-              
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+          
+            <div class="post-header main-content-wrap text-center">
   
-    
+    <h1 class="post-title" itemprop="headline">
+      Added support for combobox and tokens input types in the spreadsheet display
+    </h1>
   
-
-
   
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://yashdeep97.github.io/2018/08/added-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display/">
-          Added support for combobox and tokens input types in the spreadsheet display
-        </a>
-      </h1>
-      
   <div class="postShorten-meta post-meta">
     
       <time itemprop="datePublished" datetime="2018-08-06T00:00:00Z">
@@ -240,383 +239,229 @@
   
     <span>in</span>
     
-      <a class="category-link" href="../../categories/gsoc">GSoC</a>
+      <a class="category-link" href="../../../categories/gsoc">GSoC</a>
     
   
 
   </div>
 
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>The GSoC coding period is almost over and my final major task is to enable the combobox
+</div>
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>The GSoC coding period is almost over and my final major task is to enable the combobox
 and tokens input types in the MultiPageEdit as well as the spreadsheet display for
 FormEdit.
 </p>
-      <p>
-        <a href="https://yashdeep97.github.io/2018/08/added-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
+
+<h3 id="enabling-combobox-and-tokens-input-types">Enabling combobox and tokens input types</h3>
+
+<p>Combobox and tokens are set as the ideal input type for a field if the field type is
+<em>Page</em> for Cargo or if the property type is <em>_wpg</em> for SMW. If the field consists of a
+list of values, then the input type is tokens, else it is set to combobox.</p>
+
+<p>Luckily for me, the Page Forms extension already supports combobox and tokens using
+the select2.js library. I simply used the <em>pf.select2.combobox</em> and <em>pf.select2.combobox</em>
+prototypes to render the combobox and tokens input types by using them on input tags.</p>
+
+
+ 
   
-    <a href="https://yashdeep97.github.io/2018/08/added-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="//res.cloudinary.com/dmytyofam/image/upload/v1526577476/Wikimedia_Foundation_Logo.png"/>
-      </div>
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="https://res.cloudinary.com/dmytyofam/image/upload/v1533574897/combobox.png" title="Combobox input type" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://res.cloudinary.com/dmytyofam/image/upload/v1533574897/combobox.png"  alt="Combobox input type">
+  
     </a>
   
-</article>
+   
+    <span class="caption">Combobox input type</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+
+ 
+  
+  
+  
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+  
+
+ 
+  
+  
+  
+  
+    
+  
+    
+      
+    
+  
+
+<div class="figure center" >
+  
+    <a class="fancybox" href="https://res.cloudinary.com/dmytyofam/image/upload/v1533575308/tokens.png" title="Tokens input type" data-fancybox-group="">
+  
+    <img class="fig-img" src="https://res.cloudinary.com/dmytyofam/image/upload/v1533575308/tokens.png"  alt="Tokens input type">
+  
+    </a>
+  
+   
+    <span class="caption">Tokens input type</span>
+  
+</div>
+
+  <div style="clear:both;"></div>
+
+
+<h3 id="autocompletion-for-combobox-and-tokens">Autocompletion for combobox and tokens</h3>
+
+<p>There are two types of autocompletion that can be used, either the options in the dropdown
+are set before the page is loaded or if the number of options are more than a predefined limit
+which is set by the global variable <em>$wgPageFormsMaxLocalAutocompleteValues</em>, they are loaded
+using remote autocompletion. Remote autocompletion uses the pfautocompleteAPI to get the
+values.</p>
+
+<h3 id="patch-es-on-gerrit">Patch(es) on Gerrit:</h3>
+
+<ul>
+<li><a href="https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/PageForms/+/449734/">Add support for combobox and tokens to the Spreadsheet Interface</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">TAGGED IN</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="../../../tags/gsoc/">GSoC</a>
+
+  <a class="tag tag--primary tag--small" href="../../../tags/wikimedia/">Wikimedia</a>
+
+  <a class="tag tag--primary tag--small" href="../../../tags/mediawiki/">MediaWiki</a>
+
+  <a class="tag tag--primary tag--small" href="../../../tags/page-forms/">Page Forms</a>
+
+                  </div>
+                
+              
+            
+            
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/08/added-support-for-renaming-pages-using-the-spreadsheet-interface/" data-tooltip="Added support for renaming pages using the Spreadsheet Interface">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yashdeep97.github.io/2018/08/added-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://yashdeep97.github.io/2018/08/added-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
 
             
               
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://yashdeep97.github.io/2018/08/added-support-for-renaming-pages-using-the-spreadsheet-interface/">
-          Added support for renaming pages using the Spreadsheet Interface
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-08-03T00:00:00Z">
-        
-  August 3, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="../../categories/gsoc">GSoC</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>After finishing with the implementation of update and insert, I decided to work on
-implementing the renaming pages functionality. I also tried quite a few MediaWiki
-modules to display the success and error messages for the spreadsheet.
-</p>
-      <p>
-        <a href="https://yashdeep97.github.io/2018/08/added-support-for-renaming-pages-using-the-spreadsheet-interface/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://yashdeep97.github.io/2018/08/added-support-for-renaming-pages-using-the-spreadsheet-interface/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="//res.cloudinary.com/dmytyofam/image/upload/v1526577476/Wikimedia_Foundation_Logo.png"/>
-      </div>
-    </a>
-  
-</article>
-
-            
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
               
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://yashdeep97.github.io/2018/07/functionality-for-updating-and-creating-pages-using-the-spreadsheet-interface/">
-          Functionality for updating and creating pages using the Spreadsheet interface
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-07-29T00:00:00Z">
-        
-  July 29, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="../../categories/gsoc">GSoC</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p></p>
-      <p>
-        <a href="https://yashdeep97.github.io/2018/07/functionality-for-updating-and-creating-pages-using-the-spreadsheet-interface/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://yashdeep97.github.io/2018/07/functionality-for-updating-and-creating-pages-using-the-spreadsheet-interface/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="//res.cloudinary.com/dmytyofam/image/upload/v1526577476/Wikimedia_Foundation_Logo.png"/>
-      </div>
-    </a>
-  
-</article>
-
             
-              
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://yashdeep97.github.io/2018/06/pagination-for-the-spreadsheet-interface-using-ajax/">
-          Pagination for the spreadsheet interface using Ajax
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-06-30T00:00:00Z">
-        
-  June 30, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="../../categories/gsoc">GSoC</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>I spent my third week of coding implementing pagination for the spreadsheet interface.
- This was a crucial task which helped in reducing the time taken to load the data.
-</p>
-      <p>
-        <a href="https://yashdeep97.github.io/2018/06/pagination-for-the-spreadsheet-interface-using-ajax/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://yashdeep97.github.io/2018/06/pagination-for-the-spreadsheet-interface-using-ajax/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="//res.cloudinary.com/dmytyofam/image/upload/v1526577476/Wikimedia_Foundation_Logo.png"/>
-      </div>
-    </a>
-  
-</article>
-
-            
-              
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://yashdeep97.github.io/2018/06/displaying-the-template-calls-in-a-spreadsheet-interface/">
-          Displaying the template calls in a Spreadsheet Interface
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-06-11T00:00:00Z">
-        
-  June 11, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="../../categories/gsoc">GSoC</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>In the second week of the coding period I moved on to the central task of my project
-ie. displaying the spreadsheet in the special page previously created.
-</p>
-      <p>
-        <a href="https://yashdeep97.github.io/2018/06/displaying-the-template-calls-in-a-spreadsheet-interface/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://yashdeep97.github.io/2018/06/displaying-the-template-calls-in-a-spreadsheet-interface/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="//res.cloudinary.com/dmytyofam/image/upload/v1526577476/Wikimedia_Foundation_Logo.png"/>
-      </div>
-    </a>
-  
-</article>
-
-            
-              
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://yashdeep97.github.io/2018/05/community-bonding-and-the-start-of-the-coding-period/">
-          Community Bonding and the start of the Coding Period
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-05-21T00:00:00Z">
-        
-  May 21, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="../../categories/gsoc">GSoC</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p></p>
-      <p>
-        <a href="https://yashdeep97.github.io/2018/05/community-bonding-and-the-start-of-the-coding-period/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://yashdeep97.github.io/2018/05/community-bonding-and-the-start-of-the-coding-period/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="//res.cloudinary.com/dmytyofam/image/upload/v1526577476/Wikimedia_Foundation_Logo.png"/>
-      </div>
-    </a>
-  
-</article>
-
-            
-              
-  
-    
-  
-
-
-  
-
-<article class="postShorten postShorten--thumbnailimg-left" itemscope itemType="http://schema.org/BlogPosting">
-  <div class="postShorten-wrap">
-    
-    <div class="postShorten-header">
-      <h1 class="postShorten-title" itemprop="headline">
-        <a class="link-unstyled" href="https://yashdeep97.github.io/2018/05/the-journey-leading-to-gsoc-2018-with-wikimedia-foundation/">
-          The Journey leading to GSoC 2018 with Wikimedia Foundation
-        </a>
-      </h1>
-      
-  <div class="postShorten-meta post-meta">
-    
-      <time itemprop="datePublished" datetime="2018-05-03T00:00:00Z">
-        
-  May 3, 2018
-
-      </time>
-    
-    
-  
-  
-    <span>in</span>
-    
-      <a class="category-link" href="../../categories/gsoc">GSoC</a>
-    
-  
-
-  </div>
-
-    </div>
-    <div class="postShorten-excerpt" itemprop="articleBody">
-      <p>The results are out and I have been selected for GSoC 2018!
-I couldn&rsquo;t be more thrilled as I take my first step into the Open Source World.
-</p>
-      <p>
-        <a href="https://yashdeep97.github.io/2018/05/the-journey-leading-to-gsoc-2018-with-wikimedia-foundation/" class="postShorten-excerpt_link link">Continue reading</a>
-        
-      </p>
-    </div>
-  </div>
-  
-    <a href="https://yashdeep97.github.io/2018/05/the-journey-leading-to-gsoc-2018-with-wikimedia-foundation/">
-      <div class="postShorten-thumbnailimg">
-        <img alt="" itemprop="image" src="//res.cloudinary.com/dmytyofam/image/upload/v1525352005/220px-GSoC.png"/>
-      </div>
-    </a>
-  
-</article>
-
-            
-            
-
-          </section>
-        
+          </div>
+        </article>
         <footer id="footer" class="main-content-wrap">
   <span class="copyrights">
     &copy; 2018 Yashdeep Thorat. All Rights Reserved
@@ -624,6 +469,90 @@ I couldn&rsquo;t be more thrilled as I take my first step into the Open Source W
 </footer>
 
       </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+        
+  <div class="post-actions-wrap">
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--disabled">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/08/added-support-for-renaming-pages-using-the-spreadsheet-interface/" data-tooltip="Added support for renaming pages using the Spreadsheet Interface">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yashdeep97.github.io/2018/08/added-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display/">
+              <i class="fa fa-facebook-official"></i>
+            </a>
+          </li>
+        
+          <li class="post-action hide-xs">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://yashdeep97.github.io/2018/08/added-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display/">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyashdeep97.github.io%2F2018%2F08%2Fadded-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display%2F">
+          <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
+        </a>
+      </li>
+    
+      <li class="share-option">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fyashdeep97.github.io%2F2018%2F08%2Fadded-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display%2F">
+          <i class="fa fa-twitter"></i><span>Share on Twitter</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
     </div>
     
     <div id="about">
@@ -832,7 +761,7 @@ I couldn&rsquo;t be more thrilled as I take my first step into the Open Source W
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
 
 
-<script src="../../js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+<script src="../../../js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
 
 
 
@@ -848,6 +777,32 @@ $(document).ready(function() {
 });
 </script>
 
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/yashdeep97.github.io\/2018\/08\/added-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display\/';
+          
+            this.page.identifier = 'gsoc7';
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'hugoblog-2';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
 
 
 

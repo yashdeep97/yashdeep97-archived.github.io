@@ -6,10 +6,22 @@
     <description>Recent content on Yashdeep&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://yashdeep97.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Added support for combobox and tokens input types in the spreadsheet display</title>
+      <link>https://yashdeep97.github.io/2018/08/added-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display/</link>
+      <pubDate>Mon, 06 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://yashdeep97.github.io/2018/08/added-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display/</guid>
+      <description>&lt;p&gt;The GSoC coding period is almost over and my final major task is to enable the combobox
+and tokens input types in the MultiPageEdit as well as the spreadsheet display for
+FormEdit.
+&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Added support for renaming pages using the Spreadsheet Interface</title>
