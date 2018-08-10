@@ -20,7 +20,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Hugo 0.46 with theme Tranquilpeak 0.4.3-BETA">
-    <title>Added support for combobox and tokens input types in the spreadsheet display</title>
+    <title>MultiPageEdit Special Page for the MediaWiki Page Forms extension - Final Report</title>
     <meta name="author" content="Yashdeep Thorat">
     <meta name="keywords" content="">
 
@@ -28,24 +28,15 @@
     
 
     
-    <meta name="description" content="The GSoC coding period is almost over and my final major task is to enable the combobox
-and tokens input types in the MultiPageEdit as well as the spreadsheet display for
-FormEdit.
-">
-    <meta property="og:description" content="The GSoC coding period is almost over and my final major task is to enable the combobox
-and tokens input types in the MultiPageEdit as well as the spreadsheet display for
-FormEdit.
-">
+    <meta name="description" content="">
+    <meta property="og:description" content="">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Added support for combobox and tokens input types in the spreadsheet display">
-    <meta property="og:url" content="/2018/08/added-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display/">
+    <meta property="og:title" content="MultiPageEdit Special Page for the MediaWiki Page Forms extension - Final Report">
+    <meta property="og:url" content="/2018/08/multipageedit-special-page-for-the-mediawiki-page-forms-extension---final-report/">
     <meta property="og:site_name" content="Yashdeep&#39;s Blog">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Yashdeep&#39;s Blog">
-    <meta name="twitter:description" content="The GSoC coding period is almost over and my final major task is to enable the combobox
-and tokens input types in the MultiPageEdit as well as the spreadsheet display for
-FormEdit.
-">
+    <meta name="twitter:description" content="">
     
     
 
@@ -222,15 +213,15 @@ FormEdit.
             <div class="post-header main-content-wrap text-center">
   
     <h1 class="post-title" itemprop="headline">
-      Added support for combobox and tokens input types in the spreadsheet display
+      MultiPageEdit Special Page for the MediaWiki Page Forms extension - Final Report
     </h1>
   
   
   <div class="postShorten-meta post-meta">
     
-      <time itemprop="datePublished" datetime="2018-08-06T00:00:00Z">
+      <time itemprop="datePublished" datetime="2018-08-08T00:00:00Z">
         
-  August 6, 2018
+  August 8, 2018
 
       </time>
     
@@ -249,65 +240,31 @@ FormEdit.
           
           <div class="post-content markdown" itemprop="articleBody">
             <div class="main-content-wrap">
-              <p>The GSoC coding period is almost over and my final major task is to enable the combobox
-and tokens input types in the MultiPageEdit as well as the spreadsheet display for
-FormEdit.
-</p>
+              <p></p>
 
-<h3 id="enabling-combobox-and-tokens-input-types">Enabling combobox and tokens input types</h3>
+<p><strong>GSoC Proposal Link</strong>: <a href="https://phabricator.wikimedia.org/T189743">https://phabricator.wikimedia.org/T189743</a></p>
 
-<p>Combobox and tokens are set as the ideal input type for a field if the field type is
-<em>Page</em> for Cargo or if the property type is <em>_wpg</em> for SMW. If the field consists of a
-list of values, then the input type is tokens, else it is set to combobox.</p>
+<p><strong>Project Page</strong>: <a href="https://www.mediawiki.org/wiki/Extension:Page_Forms">Page Forms</a></p>
 
-<p>Luckily for me, the Page Forms extension already supports combobox and tokens using
-the select2.js library. I simply used the <em>pf.select2.combobox</em> and <em>pf.select2.combobox</em>
-prototypes to render the combobox and tokens input types by using them on input tags.</p>
+<p><strong>Mentors</strong>: <a href="https://www.mediawiki.org/wiki/User:Yaron_Koren">Yaron Koren</a>, <a href="https://www.mediawiki.org/wiki/User:Nischayn22">Nischay Nahata</a>, <a href="https://github.com/balabky9">Balakarthikeyan Rajan</a></p>
 
+<h3 id="about-my-project">About my project</h3>
 
- 
-  
-  
-  
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-  
+<p>My project for GSoC was creating a special page for the MediaWiki Page Forms extension that
+allowed users to edit multiple pages through a single spreadsheet-like interface.</p>
 
- 
-  
-  
-  
-  
-    
-  
-    
-      
-    
-  
+<p>Templates are an integral part of MediaWiki. They can be used to render tables, infoboxes,
+and other HTML elements on the pages of a wiki. This makes it much easier for users to
+create complex and elegant pages, without any knowledge of HTML, CSS, etc.
+The Page Forms extension provides forms that can be used to create, edit and query data.
+It also defines powerful autoedit API action that can be used to edit, create pages
+using forms.</p>
 
-<div class="figure center" >
-  
-    <a class="fancybox" href="https://res.cloudinary.com/dmytyofam/image/upload/v1533574897/combobox.png" title="Combobox input type" data-fancybox-group="">
-  
-    <img class="fig-img" src="https://res.cloudinary.com/dmytyofam/image/upload/v1533574897/combobox.png"  alt="Combobox input type">
-  
-    </a>
-  
-   
-    <span class="caption">Combobox input type</span>
-  
-</div>
-
-  <div style="clear:both;"></div>
-
+<p>My project focused on creating a spreadsheet interface using the jsGrid library which
+would allow users to edit template calls of a particular template embedded in various pages of the wiki.
+The interface also allows users to create and rename pages. Moreover, it supports pagination
+for large data sets. The spreadsheet interface supports data types like text, text area,
+checkbox, date, combobox and tokens.</p>
 
 
  
@@ -340,32 +297,91 @@ prototypes to render the combobox and tokens input types by using them on input 
 
 <div class="figure center" >
   
-    <a class="fancybox" href="https://res.cloudinary.com/dmytyofam/image/upload/v1533575308/tokens.png" title="Tokens input type" data-fancybox-group="">
+    <a class="fancybox" href="https://res.cloudinary.com/dmytyofam/image/upload/v1533832988/final-demo.png" title="MultiPageEdit special page on discoursedb.org" data-fancybox-group="">
   
-    <img class="fig-img" src="https://res.cloudinary.com/dmytyofam/image/upload/v1533575308/tokens.png"  alt="Tokens input type">
+    <img class="fig-img" src="https://res.cloudinary.com/dmytyofam/image/upload/v1533832988/final-demo.png"  alt="MultiPageEdit special page on discoursedb.org">
   
     </a>
   
    
-    <span class="caption">Tokens input type</span>
+    <span class="caption">MultiPageEdit special page on discoursedb.org</span>
   
 </div>
 
   <div style="clear:both;"></div>
 
 
-<h3 id="autocompletion-for-combobox-and-tokens">Autocompletion for combobox and tokens</h3>
+<p><strong>Current status of the project</strong>: The features that I mentioned in my proposal have been implemented and the MultiPageEdit special page is ready to be used.</p>
 
-<p>There are two types of autocompletion that can be used, either the options in the dropdown
-are set before the page is loaded or if the number of options are more than a predefined limit
-which is set by the global variable <em>$wgPageFormsMaxLocalAutocompleteValues</em>, they are loaded
-using remote autocompletion. Remote autocompletion uses the pfautocompleteAPI to get the
-values.</p>
+<h3 id="changelog">Changelog</h3>
 
-<h3 id="patch-es-on-gerrit">Patch(es) on Gerrit:</h3>
+<p><strong>I made the following patches during the GSoC period:</strong></p>
+
+<ol>
+<li><p><strong>Create Special Page for Spreadsheet Interface to edit template calls</strong></p>
+
+<ul>
+<li><a href="https://gerrit.wikimedia.org/r/#/c/433565/">Add a new special page for the spreadsheet inerface</a></li>
+<li><a href="https://gerrit.wikimedia.org/r/#/c/434549/">Display template calls in a Spreadsheet</a></li>
+<li><a href="https://gerrit.wikimedia.org/r/#/c/437217/">Fetch form name for each template</a></li>
+</ul>
+
+<p>The patches create a special page for displaying all the templates and for displaying the spreadsheet. Forms are also fetched for each template, so that the pfautoeditAPI can be used for editing the pages. All the template calls fetched, are displayed in a spreadsheet.</p></li>
+
+<li><p><strong>Get Ideal input type for parameters</strong></p>
+
+<ul>
+<li><a href="https://gerrit.wikimedia.org/r/#/c/436030/">Get ideal input type for each template parameter in the spreadsheet</a></li>
+</ul>
+
+<p>The ideal input type for each field is set according to the cargo field type or the SMW property type. The fields are displayed according to predefined HTML templates.</p></li>
+
+<li><p><strong>Implement Pagination</strong></p>
+
+<ul>
+<li><a href="https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/PageForms/+/441261/">Add pagination feature to EditUSingSpreadsheet special page</a></li>
+</ul>
+
+<p>The page contents are loaded dynamically according to the selected page of the spreadsheet. Thus reducing the loading time for the the entire spreadsheet.</p></li>
+
+<li><p><strong>Add Support for editing, creating and renaming pages</strong></p>
+
+<ul>
+<li><a href="https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/PageForms/+/441261/">Add support for updating and creating pages using the EditUsingSpreadsheet special page</a></li>
+</ul>
+
+<p>Pages are edited and created using the pfautoeditAPI. The remaning of pages is implemented using the MoveAPI.</p></li>
+
+<li><p><strong>Add support for tokens and combobox</strong></p>
 
 <ul>
 <li><a href="https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/PageForms/+/449734/">Add support for combobox and tokens to the Spreadsheet Interface</a></li>
+</ul>
+
+<p>Tokens and combobox input types are now supported by the spreadsheet display too. I have used the select2.js prototypes to implement this.</p></li>
+
+<li><p><strong>Miscellaneous</strong></p>
+
+<ul>
+<li><a href="https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/PageForms/+/450480/">Display success and error messages</a></li>
+<li><a href="https://gerrit.wikimedia.org/r/450480">Fix date issues and improve error notifications for the MultiPageEdit special page</a></li>
+<li><a href="https://gerrit.wikimedia.org/r/451008">Rename EditUsingSpreadsheet special page to MultiPageEdit and add localisation for messages</a></li>
+</ul></li>
+</ol>
+
+<h3 id="what-i-learned-from-gsoc-summing-it-all-up">What I learned from GSoC - Summing it all up!</h3>
+
+<p>While working on my GSoC project, I faced a lot of challenges and overcoming them has taught me quite few things. This was the first time I worked on such a huge project, one with a massive userbase. The major hurdle I faced at the start of each task was to understand the existing code related to it and accordingly implement the funtions, prototypes. Many a times, I was at crossroads and had to decide upon which approach to take to complete a task or solve an issue. My mentors were really helpful and guided me throughout the project duration. They also helped me make crucial decisions and introduced to me to the various modules of the MediaWiki codebase. In terms of coding I learned how to use Ajax and callbacks efficiently and how to use the different actions provided by the MediaWiki API. In the process, I also started my own blog. I would also like to thank the org administrators of the Wikimedia Foundation for their valuable guidance and inputs.</p>
+
+<h3 id="looking-ahead">Looking ahead</h3>
+
+<p>I plan to add the <strong>page delete</strong> feature to the MultiPageEdit special page. Also, the pfautoeditAPI which is the backbone of the special page needs some changes to handle multiple template calls in a single page. I plan to work on that. Moreover, I am looking forward to meeting and interacting with my mentors and other members of the   Wikimedia community. Given the chance, I would love to attend conferences and get to know about other MediaWiki projects.</p>
+
+<h3 id="links-to-all-the-commits">Links to all the commits</h3>
+
+<ul>
+<li><strong>Gerrit</strong>: <a href="https://gerrit.wikimedia.org/r/#/q/yashdeep97">https://gerrit.wikimedia.org/r/#/q/yashdeep97</a></li>
+<li><strong>Mirror on Github</strong>: <a href="https://github.com/wikimedia/mediawiki-extensions-PageForms/commits?author=yashdeep97">https://github.com/wikimedia/mediawiki-extensions-PageForms/commits?author=yashdeep97</a></li>
 </ul>
               
             </div>
@@ -397,7 +413,7 @@ values.</p>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/08/multipageedit-special-page-for-the-mediawiki-page-forms-extension---final-report/" data-tooltip="MultiPageEdit Special Page for the MediaWiki Page Forms extension - Final Report">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -405,7 +421,7 @@ values.</p>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/08/added-support-for-renaming-pages-using-the-spreadsheet-interface/" data-tooltip="Added support for renaming pages using the Spreadsheet Interface">
+                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/08/added-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display/" data-tooltip="Added support for combobox and tokens input types in the spreadsheet display">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -423,13 +439,13 @@ values.</p>
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yashdeep97.github.io/2018/08/added-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yashdeep97.github.io/2018/08/multipageedit-special-page-for-the-mediawiki-page-forms-extension---final-report/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://yashdeep97.github.io/2018/08/added-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://yashdeep97.github.io/2018/08/multipageedit-special-page-for-the-mediawiki-page-forms-extension---final-report/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -477,7 +493,7 @@ values.</p>
           
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/08/multipageedit-special-page-for-the-mediawiki-page-forms-extension---final-report/" data-tooltip="MultiPageEdit Special Page for the MediaWiki Page Forms extension - Final Report">
+                <a class="post-action-btn btn btn--disabled">
               
                   <i class="fa fa-angle-left"></i>
                   <span class="hide-xs hide-sm text-small icon-ml">NEXT</span>
@@ -485,7 +501,7 @@ values.</p>
             </li>
             <li class="post-action">
               
-                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/08/added-support-for-renaming-pages-using-the-spreadsheet-interface/" data-tooltip="Added support for renaming pages using the Spreadsheet Interface">
+                <a class="post-action-btn btn btn--default tooltip--top" href="../../../2018/08/added-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display/" data-tooltip="Added support for combobox and tokens input types in the spreadsheet display">
               
                   <span class="hide-xs hide-sm text-small icon-mr">PREVIOUS</span>
                   <i class="fa fa-angle-right"></i>
@@ -503,13 +519,13 @@ values.</p>
         </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yashdeep97.github.io/2018/08/added-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https://yashdeep97.github.io/2018/08/multipageedit-special-page-for-the-mediawiki-page-forms-extension---final-report/">
               <i class="fa fa-facebook-official"></i>
             </a>
           </li>
         
           <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://yashdeep97.github.io/2018/08/added-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=https://yashdeep97.github.io/2018/08/multipageedit-special-page-for-the-mediawiki-page-forms-extension---final-report/">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
@@ -539,13 +555,13 @@ values.</p>
   <ul class="share-options">
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyashdeep97.github.io%2F2018%2F08%2Fadded-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display%2F">
+        <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyashdeep97.github.io%2F2018%2F08%2Fmultipageedit-special-page-for-the-mediawiki-page-forms-extension---final-report%2F">
           <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
         </a>
       </li>
     
       <li class="share-option">
-        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fyashdeep97.github.io%2F2018%2F08%2Fadded-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display%2F">
+        <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=https%3A%2F%2Fyashdeep97.github.io%2F2018%2F08%2Fmultipageedit-special-page-for-the-mediawiki-page-forms-extension---final-report%2F">
           <i class="fa fa-twitter"></i><span>Share on Twitter</span>
         </a>
       </li>
@@ -799,9 +815,9 @@ $(document).ready(function() {
     
       <script>
         var disqus_config = function () {
-          this.page.url = 'https:\/\/yashdeep97.github.io\/2018\/08\/added-support-for-combobox-and-tokens-input-types-in-the-spreadsheet-display\/';
+          this.page.url = 'https:\/\/yashdeep97.github.io\/2018\/08\/multipageedit-special-page-for-the-mediawiki-page-forms-extension---final-report\/';
           
-            this.page.identifier = 'gsoc7';
+            this.page.identifier = 'gsoc8';
           
         };
         (function() {

@@ -6,10 +6,19 @@
     <description>Recent content in Wikimedia on Yashdeep&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://yashdeep97.github.io/tags/wikimedia/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MultiPageEdit Special Page for the MediaWiki Page Forms extension - Final Report</title>
+      <link>https://yashdeep97.github.io/2018/08/multipageedit-special-page-for-the-mediawiki-page-forms-extension---final-report/</link>
+      <pubDate>Wed, 08 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://yashdeep97.github.io/2018/08/multipageedit-special-page-for-the-mediawiki-page-forms-extension---final-report/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Added support for combobox and tokens input types in the spreadsheet display</title>
