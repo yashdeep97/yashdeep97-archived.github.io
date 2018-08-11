@@ -252,7 +252,7 @@
 
 <p>My project for GSoC was creating a special page for the MediaWiki Page Forms extension that allowed users to edit multiple pages through a single spreadsheet-like interface.</p>
 
-<p>Templates are an integral part of MediaWiki. They can be used to render tables, infoboxes, and other HTML elements on the pages of a wiki. This makes it much easier for users to create complex and elegant pages, without any knowledge of HTML, CSS, etc. The Page Forms extension provides forms that can be used to create, edit and query data. It also defines powerful autoedit API action that can be used to edit, create pages using forms.</p>
+<p>Templates are an integral part of MediaWiki. They can be used to render tables, infoboxes, and other HTML elements on the pages of a wiki. This makes it much easier for users to create complex and elegant pages, without any knowledge of HTML, CSS, etc. The Page Forms extension provides forms that can be used to create, edit and query data. It also defines the powerful autoedit API action that can be used to edit, create pages using forms.</p>
 
 <p>My project focused on creating a spreadsheet interface using the jsGrid library which would allow users to edit template calls of a particular template embedded in various pages of the wiki. The interface also allows users to create and rename pages. Moreover, it supports pagination for large data sets. The spreadsheet interface supports input types like text, text area, checkbox, date, combobox and tokens.</p>
 
@@ -316,7 +316,7 @@
 <li><a href="https://gerrit.wikimedia.org/r/#/c/437217/">Fetch form name for each template</a></li>
 </ul>
 
-<p>The patches create a special page for displaying all the templates and for displaying the spreadsheet. Forms are also fetched for each template, so that the pfautoeditAPI can be used for editing the pages. All the template calls fetched, are displayed in a spreadsheet.</p></li>
+<p>The patches create a special page for displaying all the templates and for displaying the spreadsheet. Forms are also fetched for each template, so that the pfautoedit API action can be used for editing the pages. All the template calls fetched, are displayed in a spreadsheet.</p></li>
 
 <li><p><strong>Get Ideal input type for parameters</strong></p>
 
@@ -340,7 +340,7 @@
 <li><a href="https://gerrit.wikimedia.org/r/#/c/mediawiki/extensions/PageForms/+/441261/">Add support for updating and creating pages using the EditUsingSpreadsheet special page</a></li>
 </ul>
 
-<p>Pages are edited and created using the pfautoeditAPI. The remaning of pages is implemented using the MoveAPI.</p></li>
+<p>Pages are edited and created using the pfautoedit API action. The remaning of pages is implemented using the Move API action.</p></li>
 
 <li><p><strong>Add support for tokens and combobox</strong></p>
 
@@ -365,7 +365,7 @@
 
 <h3 id="looking-ahead">Looking ahead</h3>
 
-<p>I plan to add the <strong>page delete</strong> feature to the MultiPageEdit special page. Also, the pfautoeditAPI which is the backbone of the special page needs some changes to handle multiple template calls in a single page. I plan to work on that. Moreover, I am looking forward to meeting and interacting with my mentors and other members of the   Wikimedia community. Given the chance, I would love to attend conferences and get to know about other MediaWiki projects.</p>
+<p>I plan to add the <strong>page delete</strong> feature to the MultiPageEdit special page. Also, the pfautoedit API action which is the backbone of the special page needs some changes to handle multiple template calls in a single page. I plan to work on that. Moreover, I am looking forward to meeting and interacting with my mentors and other members of the   Wikimedia community. Given the chance, I would love to attend conferences and get to know about other MediaWiki projects.</p>
 
 <h3 id="links-to-all-the-commits">Links to all the commits</h3>
 
